@@ -1,0 +1,9 @@
+syntax: glob
+
+*.swp
+*~
+*.o
+*.exe
+*.hi
+*.script
+
