@@ -1,5 +1,5 @@
 
-;OMG this is slow
+;Well, it is still slow, but lookee here!
 
 ;(set! *warn-on-reflection* true)
 
@@ -10,7 +10,7 @@
 
 (defn hmm [n] 
    
-   (def b (.read s)) 
+   (def b (.read ^java.io.BufferedInputStream s)) 
    (cond
       (== b -1)
          n
