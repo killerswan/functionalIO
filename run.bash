@@ -44,11 +44,12 @@ function batch () {
 
 
 # tests
+batch /code/bin/godoc
 #batch ~/Desktop/TWiV114.mp3 # 60.6 MB
 #echo "<!-- --------------------------------- -->"
 #batch /code/3p/ChromeOS/chromeos # 238 MB
 #echo "<!-- --------------------------------- -->"
-batch /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
+#batch /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
 #echo "<!-- --------------------------------- -->"
 #batch /code/3p/linux/2xu.1400
 #echo "<!-- --------------------------------- -->"
