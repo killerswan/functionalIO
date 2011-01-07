@@ -4,14 +4,17 @@
 function fsc () {
 
    # compiled mono
-   MONO="/code/3p/mono-world/bin/mono"
+#   MONO="/code/3p/mono-world/bin/mono"
    
    # environment
-   source "/code/3p/mono-world/mono-dev-env.bash"
+#   source "/code/3p/mono-world/mono-dev-env.bash"
 
    # fsc
-   "$MONO" /usr/lib/fsharp/fsc.exe --resident "$@"
-#   mono /usr/lib/fsharp/fsc.exe --resident "$@"
+#   "$MONO" /usr/lib/fsharp/fsc.exe --resident "$@"
+   mono /usr/lib/fsharp/fsc.exe --nologo   \
+                                --optimize \
+                                --resident \
+                                "$@"
 }
 
 # F#
