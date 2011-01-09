@@ -6,4 +6,5 @@ syntax: glob
 *.exe
 *.hi
 *.script
+*.6
 

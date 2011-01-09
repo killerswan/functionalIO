@@ -22,20 +22,21 @@ function batch () {
    
    # executables to test
    EXES=(
-      ./demand-hs.exe
-      ./demand-fs.exe  
-      ./eager-hs.exe
-      ./eager-fs.exe
-      ./run-clj.sh
+      ./hs/demand-hs.exe
+      ./fs/demand-fs.exe  
+      ./hs/eager-hs.exe
+      ./fs/eager-fs.exe
+      ./clj/run-clj.sh
+      ./go/xor
    )
 
    # run a set of tests
-
-   echo "File: \"$1\""
+   echo "File: \"$1\" -----------------------------"
    echo ""
 
    for E in "${EXES[@]}" 
    do
+      echo "--> executing $E..."
       testprog "$E" "$1"
       echo ""
    done
@@ -45,17 +46,18 @@ function batch () {
 
 # tests
 batch /code/bin/godoc
-#batch ~/Desktop/TWiV114.mp3 # 60.6 MB
-#echo "<!-- --------------------------------- -->"
-#batch /code/3p/ChromeOS/chromeos # 238 MB
-#echo "<!-- --------------------------------- -->"
-#batch /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
-#echo "<!-- --------------------------------- -->"
-#batch /code/3p/linux/2xu.1400
-#echo "<!-- --------------------------------- -->"
-#batch /code/3p/linux/4xu.2800
-#echo "<!-- --------------------------------- -->"
-#batch /code/3p/linux/8xu.5600
+echo "<!-- --------------------------------- -->"
+batch ~/Desktop/TWiV114.mp3 # 60.6 MB
+echo "<!-- --------------------------------- -->"
+batch /code/3p/ChromeOS/chromeos # 238 MB
+echo "<!-- --------------------------------- -->"
+batch /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
+echo "<!-- --------------------------------- -->"
+batch /code/3p/linux/2xu.1400
+echo "<!-- --------------------------------- -->"
+batch /code/3p/linux/4xu.2800
+echo "<!-- --------------------------------- -->"
+batch /code/3p/linux/8xu.5600
 
 
 
