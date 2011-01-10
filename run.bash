@@ -23,10 +23,10 @@ function batch () {
    # executables to test
    EXES=(
       ./hs/demand-hs.exe
-      ./fs/demand-fs.exe  
       ./hs/eager-hs.exe
-      ./fs/eager-fs.exe
-      ./clj/run-clj.sh
+      ./demand-fs.sh  
+      ./eager-fs.sh
+#      ./run-clj.sh
       ./go/xor
    )
 
