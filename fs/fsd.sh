@@ -1,3 +1,3 @@
 #!/bin/sh
 MYDIR="$(cd "$(dirname "$0")"; pwd)"
-mono "$MYDIR"/demand-fs.exe
+mono "$MYDIR"/demand-fs.exe $@

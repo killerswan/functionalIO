@@ -1,3 +1,3 @@
 #!/bin/sh
 MYDIR="$(cd "$(dirname "$0")"; pwd)"
-mono "$MYDIR"/eager-fs.exe
+mono "$MYDIR"/eager-fs.exe $@
