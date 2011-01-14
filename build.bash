@@ -1,16 +1,6 @@
 #!/bin/bash
 
-# replace fsharpc with a call to mono 2.8+
 function fsc () {
-
-   # compiled mono
-#   MONO="/code/3p/mono-world/bin/mono"
-   
-   # environment
-#   source "/code/3p/mono-world/mono-dev-env.bash"
-
-   # fsc
-#   "$MONO" /usr/lib/fsharp/fsc.exe --resident "$@"
    mono /usr/lib/fsharp/fsc.exe --nologo   \
                                 --optimize \
                                 --resident \
@@ -35,17 +25,10 @@ time ghc -O2 -o eager-hs.exe --make eager.hs
 chmod +x demand-hs.exe eager-hs.exe
 cd ..
 
-# Clojure
-# ha! nothing!
-
 # golang
 cd go
 echo "Building Go (buffered): compiling..."
 time 6g xor.go
 echo "Building Go (buffered): linking..."
-time 6l -o xor xor.6
+time 6l -o goxor.exe xor.6
 cd ..
-
-
-
-

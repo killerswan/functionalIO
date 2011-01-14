@@ -7,4 +7,5 @@ syntax: glob
 *.hi
 *.script
 *.6
-
+images
+logs

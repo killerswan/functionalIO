@@ -23,50 +23,48 @@ function batch () {
    # executables to test
    EXES=(
       ./hs/demand-hs.exe
-      ./hs/eager-hs.exe
-      ./demand-fs.sh  
-      ./eager-fs.sh
-#      ./run-clj.sh
-      ./go/xor
+#      ./hs/eager-hs.exe
+      ./fs/demand-fs.exe  
+      ./fs/eager-fs.exe
+#      ./clj/clj.sh
+      ./go/goxor.exe
    )
 
    # run a set of tests
-   echo "File: \"$1\" -----------------------------"
+   echo "==> file: \"$1\"..."
    echo ""
 
    for E in "${EXES[@]}" 
    do
-      echo "--> executing $E..."
+
+      # now lets clean up the swap a bit before each run
+      # i think anything after a large eager haskell run needs it!
+      sleep 30
+      for EE in "${EXES[@]}" 
+      do
+         "$EE" ~/junk.jpg > /dev/null
+      done
+      
+      # now lets do a run
+      echo "--> executing: \"$E\"..."
       testprog "$E" "$1"
       echo ""
    done
 }
 
+# test files
+FILES=(
+   ~/Desktop/twiv111.mp4 # 130 MB
+   /code/3p/ChromeOS/chromeos # 238 MB
+   /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
+   /code/3p/linux/2xu.1400 # twice that
+   /code/3p/linux/4xu.2800
+   /code/3p/linux/8xu.5600
+)
 
-
-# tests
-batch /code/bin/godoc
-echo "<!-- --------------------------------- -->"
-batch ~/Desktop/TWiV114.mp3 # 60.6 MB
-echo "<!-- --------------------------------- -->"
-batch /code/3p/ChromeOS/chromeos # 238 MB
-echo "<!-- --------------------------------- -->"
-batch /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
-echo "<!-- --------------------------------- -->"
-batch /code/3p/linux/2xu.1400
-echo "<!-- --------------------------------- -->"
-batch /code/3p/linux/4xu.2800
-echo "<!-- --------------------------------- -->"
-batch /code/3p/linux/8xu.5600
-
-
-
-
-
-
-
-
-
-
-
+# run tests on each program with each file
+for FILE in "${FILES[@]}"
+do
+   batch "$FILE"
+done
 

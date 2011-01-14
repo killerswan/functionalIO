@@ -4,9 +4,9 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"bufio"
+   "fmt"
+   "os"
+   "bufio"
 )
 
 var me string = "xor"
@@ -16,34 +16,34 @@ func perr (err os.Error) {
 }
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Usage: xor FILENAME")
-		return
-	}
-	filename := os.Args[1]
+   if len(os.Args) < 2 {
+      fmt.Println("Usage: xor FILENAME")
+      return
+   }
+   filename := os.Args[1]
 
-	var result byte = 0
+   var result byte = 0
 
-	var content byte
-	var err os.Error
+   var content byte
+   var err os.Error
 
-	file, err := os.Open(filename, os.O_RDONLY, 0666)
-	if err != nil {
+   file, err := os.Open(filename, os.O_RDONLY, 0666)
+   if err != nil {
       perr(err)
-		return
-	}
+      return
+   }
 
-	br := bufio.NewReader(file)
-	//br := bufio.NewReader(os.Stdin)
+   br := bufio.NewReader(file)
+   //br := bufio.NewReader(os.Stdin)
 
-	for {
-		content, err = br.ReadByte()
-		if err != nil {
+   for {
+      content, err = br.ReadByte()
+      if err != nil {
          perr(err)
-			break
-		}
-		result ^= content
-	}
+         break
+      }
+      result ^= content
+   }
 
-	fmt.Printf("Go XOR of \"%s\": %d\n", filename, result)
+   fmt.Printf("Go XOR of \"%s\": %d\n", filename, result)
 }
