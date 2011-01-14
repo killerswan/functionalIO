@@ -24,8 +24,8 @@ function batch () {
    EXES=(
       ./hs/demand-hs.exe
 #      ./hs/eager-hs.exe
-      ./fs/demand-fs.exe  
-      ./fs/eager-fs.exe
+      ./fs/fsd.sh
+      ./fs/fse.sh
 #      ./clj/clj.sh
       ./go/goxor.exe
    )
@@ -39,7 +39,7 @@ function batch () {
 
       # now lets clean up the swap a bit before each run
       # i think anything after a large eager haskell run needs it!
-      sleep 30
+      sleep 20
       for EE in "${EXES[@]}" 
       do
          "$EE" ~/junk.jpg > /dev/null
@@ -55,11 +55,11 @@ function batch () {
 # test files
 FILES=(
    ~/Desktop/twiv111.mp4 # 130 MB
-   /code/3p/ChromeOS/chromeos # 238 MB
-   /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
-   /code/3p/linux/2xu.1400 # twice that
-   /code/3p/linux/4xu.2800
-   /code/3p/linux/8xu.5600
+#   /code/3p/ChromeOS/chromeos # 238 MB
+#   /code/3p/linux/ubuntu-10.10-desktop-amd64.iso # 695 MB
+#   /code/3p/linux/2xu.1400 # twice that
+#   /code/3p/linux/4xu.2800
+#   /code/3p/linux/8xu.5600
 )
 
 # run tests on each program with each file
